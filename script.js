@@ -8,17 +8,23 @@ insertDivsToCanvas(64);
 
 
 
+
+
+
 function insertDivsToCanvas(number) {
 
     let numberSquared = number * number;
     for (i = 0; i < numberSquared; i++) {
-        const div = document.createElement("div");
-        div.style.flexGrow = "1 1 auto";
-        div.style = " min-width: 12px; min-height: 5px; border: 1px solid lightgreen"
-        container.appendChild(div);
+        createDivs();
     }
     console.log(i);
     console.log(number);
+}
+
+function createDivs() {
+    const div = document.createElement("div");
+    div.classList.add("canvas-square")
+    container.appendChild(div);
 }
 
 function addTrailToCursor(div) {
