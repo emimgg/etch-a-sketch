@@ -1,17 +1,18 @@
 const container = document.querySelector(".container");
-const CANVAS_WIDTH = 700;
+const body = document.querySelector("body");
+const CANVAS_WIDTH = 720;
 
-insertDivsToCanvas(64);
-
-
-
-
-
-
-
+const resetButton = document.createElement("button")
+resetButton.textContent = "Create new grid";
+resetButton.style.padding = "6px";
+resetButton.style.margin = "32px auto";
+body.insertBefore(resetButton, container);
 
 
-function insertDivsToCanvas(squaresPerSide) {
+insertDivsToCanvas();
+
+
+function insertDivsToCanvas(squaresPerSide = 16) {
 
     let numberSquared = squaresPerSide * squaresPerSide;
     for (i = 0; i < numberSquared; i++) {
@@ -29,8 +30,4 @@ function createDivs(squaresPerSide) {
     container.appendChild(div);
     div.addEventListener("mouseover", () => div.style.backgroundColor = "gray");
 
-}
-
-function addTrailToCursor(div) {
-    div.style.backgroundColor = "gray";
 }

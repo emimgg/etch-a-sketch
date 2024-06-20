@@ -5,12 +5,12 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 700px;
-    height: 700px;
-    outline: 2px solid cyan;
+    width: 720px;
+    height: 720px;
+    outline: 1px solid coral;
 }
 
 .canvas-square {
-    outline: 1px solid coral;
+    outline: 1px solid rgb(226, 225, 225);
 
 }
