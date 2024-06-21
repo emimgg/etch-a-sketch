@@ -22,21 +22,32 @@ resetButton.addEventListener("click", generateNewGrid);
 function insertDivsToCanvas(squaresPerSide = 16) {
     let numberSquared = squaresPerSide * squaresPerSide;
     for (i = 0; i < numberSquared; i++) {
-        createDivs(squaresPerSide);
+        let rgbValue = generateRandomRGB();
+        createDivs(squaresPerSide, rgbValue);
     }
 }
 
-function createDivs(squaresPerSide) {
+function createDivs(squaresPerSide, rgbValue) {
     const squareSize = CANVAS_WIDTH / squaresPerSide;
     const div = document.createElement("div");
     div.classList.add("canvas-square")
     div.style = `width: ${squareSize}px; height: ${squareSize}px`
     container.appendChild(div);
-    div.addEventListener("mouseover", () => div.style.backgroundColor = "gray");
+
+    div.addEventListener("mouseover", () => div.style.backgroundColor = `rgb(${rgbValue})`);
 }
 
 function generateNewGrid(input) {
-    input = prompt("How many squares per side would you want?");
+    input = prompt("How many squares per side would you want? \n Press OK to generate new default 16x16 grid (MAX per side is 100)");
+    (input < 16) ? input = 16 : input = input;
+    (input > 100) ? input = 100 : input = input;
     container.textContent = "";
     insertDivsToCanvas(input);
+}
+
+function generateRandomRGB() {
+    let r = Math.floor(Math.random() * 255) + 1;
+    let g = Math.floor(Math.random() * 255) + 1;
+    let b = Math.floor(Math.random() * 255) + 1;
+    return r + ", " + g + ", " + b;
 }
