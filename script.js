@@ -37,7 +37,7 @@ function createDivs(squaresPerSide, rgbValue) {
 }
 
 function generateNewGrid(input) {
-    input = prompt("How many squares per side would you want? \n Press OK to generate new default 16x16 grid (MAX per side is 100)");
+    input = prompt("How many squares per side would you want? \nPress OK to generate new default 16x16 grid (MAX per side is 100)");
     (input < 16) ? input = 16 : input = input; //Check minimum 16 value
     (input > 100) ? input = 100 : input = input; //Check maximum 100 value
     container.textContent = ""; // resets grid
@@ -48,7 +48,7 @@ function generateRandomRGB() {
     let r = Math.floor(Math.random() * 255) + 1;
     let g = Math.floor(Math.random() * 255) + 1;
     let b = Math.floor(Math.random() * 255) + 1;
-    return r + ", " + g + ", " + b;
+    return `${r}, ${g}, ${b}`;
 }
 
 //-------- Button styles ---------
