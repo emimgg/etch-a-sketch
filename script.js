@@ -12,7 +12,7 @@ body.insertBefore(resetButton, container);
 insertDivsToCanvas();
 resetButton.addEventListener("click", generateNewGrid);
 
-// ###########################################
+// -------functions-------
 
 function insertDivsToCanvas(squaresPerSide = 16) {
     let numberSquared = squaresPerSide * squaresPerSide;
@@ -39,9 +39,9 @@ function createDivs(squaresPerSide, rgbValue) {
 
 function generateNewGrid(input) {
     input = prompt("How many squares per side would you want? \n Press OK to generate new default 16x16 grid (MAX per side is 100)");
-    (input < 16) ? input = 16 : input = input;
-    (input > 100) ? input = 100 : input = input;
-    container.textContent = "";
+    (input < 16) ? input = 16 : input = input; //Check minimum 16 value
+    (input > 100) ? input = 100 : input = input; //Check maximum 100 value
+    container.textContent = ""; // resets grid
     insertDivsToCanvas(input);
 }
 
