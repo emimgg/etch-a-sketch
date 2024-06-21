@@ -12,11 +12,6 @@ body.insertBefore(resetButton, container);
 insertDivsToCanvas();
 resetButton.addEventListener("click", generateNewGrid);
 
-
-
-
-
-
 // ###########################################
 
 function insertDivsToCanvas(squaresPerSide = 16) {
@@ -34,7 +29,12 @@ function createDivs(squaresPerSide, rgbValue) {
     div.style = `width: ${squareSize}px; height: ${squareSize}px`
     container.appendChild(div);
 
-    div.addEventListener("mouseover", () => div.style.backgroundColor = `rgb(${rgbValue})`);
+    let opacityValue = 0.2;
+    div.addEventListener("mouseover", () => {
+        opacityValue += 0.2;
+        if (opacityValue < 0) {opacityValue = 0};
+        div.style.backgroundColor = `rgba(${rgbValue}, ${opacityValue})`;
+    });
 }
 
 function generateNewGrid(input) {
