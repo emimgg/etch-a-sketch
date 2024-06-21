@@ -4,19 +4,18 @@ const CANVAS_WIDTH = 720;
 
 const resetButton = document.createElement("button")
 resetButton.textContent = "Create new grid";
-resetButton.style.padding = "6px";
-resetButton.style.margin = "32px auto";
-resetButton.style.fontSize = "24px";
+
 body.insertBefore(resetButton, container);
 
 insertDivsToCanvas();
+
 resetButton.addEventListener("click", generateNewGrid);
 
 // -------functions-------
 
 function insertDivsToCanvas(squaresPerSide = 16) {
     let numberSquared = squaresPerSide * squaresPerSide;
-    for (i = 0; i < numberSquared; i++) {
+    for (let i = 0; i < numberSquared; i++) {
         let rgbValue = generateRandomRGB();
         createDivs(squaresPerSide, rgbValue);
     }
@@ -51,3 +50,18 @@ function generateRandomRGB() {
     let b = Math.floor(Math.random() * 255) + 1;
     return r + ", " + g + ", " + b;
 }
+
+//-------- Button styles ---------
+resetButton.addEventListener("mouseover", () => resetButton.style.backgroundColor = "#aaa");
+resetButton.addEventListener("mouseout", () => resetButton.style.backgroundColor = "#b3b177");
+
+resetButton.style.cssText = `
+    padding: 6px;
+    margin: 32px auto;
+    font-size: 24px;
+    background-color: #b3b177;
+    color: #eee;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px gray;
+`;

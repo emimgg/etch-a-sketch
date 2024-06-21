@@ -4,6 +4,7 @@
 
 body {
     text-align: center;
+    background-color: #f3f2cb;
 }
 
 .container {
@@ -11,11 +12,11 @@ body {
     flex-wrap: wrap;
     width: 720px;
     height: 720px;
-    outline: 1px solid coral;
+    outline: 1px solid #b3b177;
     margin: 0 auto;
+    background-color: #f1f1f1;
 }
 
 .canvas-square {
     outline: 1px solid rgb(226, 225, 225);
-
 }
